@@ -1,0 +1,29 @@
+import sqlite3
+
+db = sqlite3.connect("database.db")
+
+db.execute("""
+CREATE TABLE users(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    email TEXT,
+    contact TEXT,
+    role TEXT,
+    password TEXT
+)
+""")
+
+db.execute("""
+CREATE TABLE gate_pass(
+    pass_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    student_id INTEGER,
+    reason TEXT,
+    out_date TEXT,
+    in_date TEXT,
+    parent_permission TEXT DEFAULT 'PENDING',
+    warden_status TEXT DEFAULT 'PENDING'
+)
+""")
+
+db.commit()
+db.close()

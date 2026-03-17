@@ -1,0 +1,73 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+            <span class="navbar-brand">Student Dashboard</span>
+            <a href="/" class="btn btn-outline-light btn-sm">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <div class="card p-4">
+                    <h5 class="mb-3">Apply for New Gate Pass</h5>
+                    <form method="post">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="small text-muted">Reason for Leave</label>
+                                <input class="form-control" name="reason" placeholder="e.g., Going Home for Diwali" required>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="small text-muted">Out Date</label>
+                                <input type="date" class="form-control" name="out_date" required>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="small text-muted">Return Date</label>
+                                <input type="date" class="form-control" name="in_date" required>
+                            </div>
+                        </div>
+                        <button class="btn btn-success mt-3 px-4">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card p-4">
+                    <h5 class="mb-3">Pass History & Status</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Pass ID</th>
+                                    <th>Reason</th>
+                                    <th>Parent Approval</th>
+                                    <th>Warden Approval</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for p in passes %}
+                                <tr>
+                                    <td><strong>#{{ p[0] }}</strong></td>
+                                    <td>{{ p[2] }}</td>
+                                    <td><span class="{{ 'status-approved' if p[5]=='APPROVED' else 'status-pending' }}">{{ p[5] or 'PENDING' }}</span></td>
+                                    <td><span class="{{ 'status-approved' if p[6]=='APPROVED' else 'status-pending' }}">{{ p[6] or 'PENDING' }}</span></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!-- <form method="post">
+    <h2>Register</h2>
+    Name: <input name="name" required><br>
+    Email: <input name="email" required><br>
+    Contact: <input name="contact" required><br>
+
+    Role:
+    <select name="role">
+        <option value="student">Student</option>
+        <option value="parent">Parent</option>
+        <option value="warden">Warden</option>
+        <option value="admin">Admin</option>
+    </select><br>
+
+    Password: <input type="password" name="password" required><br>
+    <button>Create Account</button>
+</form> -->
+
+
+
+<!-- Update 2 -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - Gate Pass System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container container-tight">
+        <div class="card p-4 shadow-sm">
+            <h3 class="text-center mb-4">Create Account</h3>
+            <form method="post">
+                <div class="mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input name="name" class="form-control" placeholder="XYZ" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" name="email" class="form-control" placeholder="xyz@example.com" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Contact Number</label>
+                    <input name="contact" class="form-control" placeholder="+91..." required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Your Role</label>
+                    <select name="role" class="form-select">
+                        <option value="student">Student</option>
+                        <option value="parent">Parent</option>
+                        <option value="warden">Warden</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary w-100 py-2">Create Account</button>
+            </form>
+            <div class="mt-3 text-center">
+                <a href="/" class="small text-muted text-decoration-none">← Back to Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
